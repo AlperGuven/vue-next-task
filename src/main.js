@@ -1,14 +1,14 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import List from './components/List.vue';
+import MainView from './views/MainView.vue';
 import { store } from './store/index';
-import { createRouter, createWebHashHistory } from 'vue-router'
-import './index.css';
+import { createRouter, createWebHashHistory } from 'vue-router';
+import './assets/index.scss';
 
 const routes = [
     { 
         path: '/', 
-        component: List,
+        component: MainView,
     },
     {
         path: '/:pathMatch(.*)*',
