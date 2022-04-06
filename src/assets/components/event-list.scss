@@ -4,4 +4,91 @@
     width: 100%;
     align-items: center;
     flex-direction: row;
+
+    &__main {
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 2000px;
+    
+        &__header-element {
+          position: relative;
+          padding-right: $padding-const;
+          padding-left: 10%;
+          flex: 2 1 100%;
+          @media only screen and (max-width : 1670px) {
+            padding-left: 1%;
+          }
+        }
+    
+        &__event-card {
+          position: relative;
+          flex: 0 0 100%;
+          min-width: 0;
+          max-width: 760px;
+          word-wrap: break-word;
+          background-clip: border-box;
+          border-radius: 10px;
+          border: 2px solid $border-color;
+          @media only screen and (max-width : 420px) {
+            padding-left: 1%;
+          }
+    
+          &--item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+    
+            &__body {
+              flex: 1 1 auto;
+              align-items: center;
+              padding: 20px;
+    
+              &--content {
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: #7e4545;
+                background-color: rgb(100, 20, 40, 0.05);
+                padding: .5rem 0.5rem 0.5rem 0.5rem;
+                
+                &__btn-wrapper {
+                  display: inline-flex;
+                }
+              }
+            }
+          }
+        }
+    }
+}
+
+.table td, .table th {
+    border-top: none;
+}
+  
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(155,0,0,.03);
+}
+.table-striped tbody tr:nth-of-type(even) {
+background-color: rgb(247, 247, 247);
+}
+
+.table .thead-light th {
+color: #495057;
+background-color: #ffffff;
+border-bottom: 1px solid #dee2e6;
+}
+  
+.table .thead-light th ,
+.table-bordered > tbody > tr > td, 
+.table-bordered > tbody > tr > th, 
+.table-bordered > tfoot > tr > td, 
+.table-bordered > tfoot > tr > th, 
+.table-bordered > thead > tr > td, 
+.table-bordered > thead > tr > th {
+    font-family: $font-barlow-sans-serif;
+    font-size: $span-font-size;
+    border: 5px solid rgb(255, 255, 255); 
 }

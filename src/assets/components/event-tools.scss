@@ -1,0 +1,31 @@
+.event-tools {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 20px 0 0 10px;
+  
+  
+    &__event-search {
+      position: relative;
+      flex: 2 0 auto;
+      width: 25%;
+      min-width: 170px;
+      padding: 0 15px 15px 15px;
+      align-self: center;
+    }
+  
+    &__event-pagination {
+      position: relative;
+      flex: 0 0 auto;
+      padding-right: $padding-const;
+      padding-left: $padding-const;
+      align-self: center;
+  
+      button:focus:not(:focus-visible) {
+        background-color: $font-color;
+        color: black;
+      }
+    }
+  }

@@ -1,21 +1,29 @@
 h1 {
-    font-family: $font-barlow-sans-serif;
-    font-size: $header-one-font-size;
-    color: $white-color;
-  }
-  
-  p {
-    font-family: $font-barlow-sans-serif;
-    font-size: $paragraph-font-size;
-    color: $white-color;
-  }
-  
-  span {
-    font-family: $font-barlow-sans-serif;
-    font-size: $span-font-size;
-  }
-  
-  input {
-    font-family: $font-barlow-sans-serif;
-    font-size: $input-font-size;
-  }
+  font-family: $font-barlow-sans-serif;
+  font-size: $header-one-font-size;
+  color: $font-color;
+}
+
+p {
+  font-family: $font-barlow-sans-serif;
+  font-size: $paragraph-font-size;
+  color: $font-color;
+}
+
+span {
+  font-family: $font-barlow-sans-serif;
+  font-size: $span-font-size;
+}
+
+input {
+  font-family: $font-barlow-sans-serif;
+  font-size: $input-font-size;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.navbar-nav li > .navbar-back-button {
+  margin-top: 12px;
+}

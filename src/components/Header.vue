@@ -10,6 +10,9 @@
       <li class="nav-item active">
         <a class="nav-link header-text" href="/">{{headerText}}</a>
       </li>
+      <li class="nav-item" v-if="isBackactive">
+        <router-link :to="{ name: 'Main' }" class ="btn btn-outline-info navbar-back-button">Back</router-link>
+      </li>
     </ul>
   </div>
 </nav>
@@ -22,6 +25,10 @@ export default {
   props: {
     headerText: {
        type:String,
+    },
+    isBackactive: {
+        type:Boolean,
+        default: false,
     }
   },
   data() {
