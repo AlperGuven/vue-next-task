@@ -1,7 +1,7 @@
 <template>
   <div class="event-list">
     <div class="event-list__main">
-      <h1 class="event-list__main__header-element" v-if="!loading">
+      <h1 class="event-list__main__header-element">
         {{ header }}
       </h1>
       <div

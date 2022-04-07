@@ -73,7 +73,6 @@ const actions = {
             const api_key = import.meta.env.VITE_API_KEY;
             const requestUrl = url + 'events.json?size=10&page=1&apikey=' + api_key;
             const data = await axios.get(requestUrl);
-            console.log(data.data);
             commit('SET_EVENTS', data.data)
         }
         catch (error) {
@@ -110,13 +109,20 @@ const actions = {
             const url = 'https://app.ticketmaster.com/discovery/v2/';
             const requestUrl = url + 'events.json?size=10&page=' + payload + '&apikey=' + api_key;
             const data = await axios.get(requestUrl);
-            console.log(data.data);
             commit('SET_EVENTS', data.data)
         }
         catch (error) {
             console.log(error)
         }
     },
+    sortByPayload( { commit, state }, payload) {
+        if(payload === 'Name') {
+            state.eventData.sort((a, b) => (a.name > b.name ? 1 : 1));
+        } else {
+            state.eventData.sort((a,b) =>  new Date(b.dates.start.dateTime) - new Date(a.dates.start.dateTime));
+        }
+        
+    }
 }
 
 export default {

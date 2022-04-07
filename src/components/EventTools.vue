@@ -1,5 +1,28 @@
 <template>
   <div class="event-tools">
+    <div class="event-tools__event-sort">
+      <div class="event-tools__event-sort__dropdown">
+        <div
+          class="event-tools__event-sort__dropdown__selected"
+          @click="toggleDropdown"
+        >
+          Select Sort
+        </div>
+        <div
+          class="event-tools__event-sort__dropdown__selected__options"
+          v-show="isOpen"
+        >
+          <div
+            class="event-tools__event-sort__dropdown__selected__option"
+            :key="key"
+            v-for="(option, key) in dropdownOptions"
+            @click="setOptionFromDropdown(option)"
+          >
+            {{ option }}
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="event-tools__event-search">
       <input
         type="text"
@@ -60,6 +83,12 @@ export default {
     searchText: "",
     debouncedInput: "",
     boundaryPageNumber: 11,
+    isOpen: false,
+    selected: '',
+    dropdownOptions: [
+      'Name',
+      'Date'
+    ]
   }),
   computed: {
     ...mapGetters(["eventData", "getPageData"]),
@@ -68,7 +97,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["searchEvent", "paginate"]),
+    ...mapActions(["searchEvent", "paginate", "sortByPayload"]),
     searchWithDebounce: _.debounce(async function (e) {
       // \s matches any whitespace character
       const searchQueryText = e.target.value.replace(/\s/g, "+");
@@ -104,6 +133,18 @@ export default {
     async boundaryClicked() {
       this.page = this.boundaryPageNumber;
       await this.paginateChange(this.page);
+    },
+    toggleDropdown() {
+      this.isOpen = !this.isOpen;
+    },
+    hideDropdown() {
+      this.isOpen = false;
+    },
+    // Set option as    selected state and close dropdown.
+    setOptionFromDropdown(option) {
+      this.selected = option;
+      this.sortByPayload(option);
+      this.hideDropdown();
     },
   },
   watch: {
